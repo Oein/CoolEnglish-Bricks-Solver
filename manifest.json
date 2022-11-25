@@ -1,0 +1,11 @@
+{
+  "name": "English Solver",
+  "description": "쉐도잉 귀찮다고 ㄹㅇㅋㅋ",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "permissions": [],
+  "content_scripts": [],
+  "icons": {
+    "128": "/images/128.png"
+  }
+}
