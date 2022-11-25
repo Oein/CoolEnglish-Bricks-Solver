@@ -3,8 +3,16 @@
   "description": "쉐도잉 귀찮다고 ㄹㅇㅋㅋ",
   "version": "1.0.0",
   "manifest_version": 2,
-  "permissions": [],
-  "content_scripts": [],
+  "permissions": ["scripting", "storage", "unlimitedStorage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.coolenglish.co.kr/main/",
+        "https://coolenglish.co.kr/main/"
+      ],
+      "js": ["open_study_page_in_an_old_window.js"]
+    }
+  ],
   "icons": {
     "128": "/images/128.png"
   }
