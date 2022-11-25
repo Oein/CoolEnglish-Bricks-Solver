@@ -19,5 +19,5 @@ A tool to do my homework easily
 
 # How to use
 
-Type `'HACK'` in a brick homework window. ( ! Important / Type uppercase letter, not lowercase letter ! )
+Type `'HACK'` in a bricks homework window. ( ! Important / Type uppercase letter, not lowercase letter ! )
 ![](https://github.com/Oein/CoolEnglish-Bricks-Solver/blob/main/images/How%20to%20use.png?raw=true)
