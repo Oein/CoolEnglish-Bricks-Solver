@@ -7,6 +7,13 @@
   "content_scripts": [
     {
       "matches": [
+        "https://www.coolenglish.co.kr/study/*",
+        "https://coolenglish.co.kr/study/*"
+      ],
+      "js": ["multiple_windows.js"]
+    },
+    {
+      "matches": [
         "https://www.coolenglish.co.kr/main/",
         "https://coolenglish.co.kr/main/"
       ],
