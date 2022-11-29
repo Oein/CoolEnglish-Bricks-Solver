@@ -256,6 +256,88 @@
         maine();
       }
     };
+
+    window.speech2 = (idx) => {
+      //	if(audioElementlc.currentTime == 0) return;
+      select_position_mark(current_index_count);
+      $("#pageindex").html(
+        parseInt(current_index_count) + parseInt(1) + "/" + total_word_count
+      );
+
+      audioElementlc.addEventListener("ended", function (event) {
+        if (current_step_type == "SP") return;
+
+        if (
+          current_step_type == "SA" ||
+          current_step_type == "SB" ||
+          current_step_type == "SC" ||
+          current_step_type == "SD" ||
+          current_step_type == "RR" ||
+          current_step_type == "LR"
+        ) {
+        } else {
+          $.ajax({
+            type: "GET",
+            url: "https://coolenglish.co.kr/word/save.php",
+            data:
+              "study_setting_uid=" +
+              "1386070" +
+              "&m_id=" +
+              "100408" +
+              "&step=LC" +
+              "&current_index_count=" +
+              current_index_count +
+              "&total_word_count=" +
+              total_word_count +
+              "&correct=true" +
+              "&studytime=2", //+study_time,
+            error: function () {},
+            async: false,
+            cache: false,
+            complate: function (response) {},
+            success: function (data) {},
+          });
+        }
+
+        // 이것은 nextclick버튼 상단에 안나오게 하자.
+        if (
+          current_step_type == "SA" ||
+          current_step_type == "SB" ||
+          current_step_type == "SC" ||
+          current_step_type == "SD" ||
+          current_step_type == "RR" ||
+          current_step_type == "LR"
+        ) {
+        } else {
+          if (current_index_count + 1 == total_word_count) {
+            //	alert('end');
+            $("#nextclick").show();
+            //				$("#playstop")
+            //$("#stopbtn,#stopbtn1").trigger("click");//종료
+          }
+        }
+        //	alert(player_state);
+        if (player_state == 1) {
+          player_state = 0;
+          return true;
+        }
+        if (playtimer) clearTimeout(playtimer);
+
+        //해당 스텝에서는 대기시간 없이 빠르게..
+        if (
+          current_step_type == "SA" ||
+          current_step_type == "SB" ||
+          current_step_type == "SC" ||
+          current_step_type == "SD" ||
+          current_step_type == "RR" ||
+          current_step_type == "LR"
+        ) {
+          playtimer = setTimeout(timeplay, 0);
+        } else {
+          playtimer = setTimeout(timeplay, 0);
+        }
+      });
+    };
   }
 
   function inject(fn) {
